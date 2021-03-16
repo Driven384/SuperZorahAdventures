@@ -1,21 +1,50 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <navbar />
+
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Vue from "vue";
+import Buefy from "buefy";
+import "buefy/dist/buefy.css";
+import NavBar from "./components/NavBar.vue";
+
+Vue.use(Buefy);
 
 export default {
   name: "App",
+
   components: {
-    HelloWorld
+    "navbar": NavBar
+  },
+
+  methods: {
+  },
+
+  created: function() {
+    console.log("heey")
   }
 };
 </script>
 
 <style>
 @import "./index.css";
+
+#app {
+  padding-bottom: 60px;
+  background-color: aliceblue;
+}
+
+.card {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+
+.tabs .icon:first-child {
+  margin-right: 0px;
+}
 </style>

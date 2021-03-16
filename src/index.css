@@ -78,6 +78,7 @@
    content: "";
  }
  html {
+   background-color: aliceblue;
    font-size: 100%;
    -webkit-text-size-adjust: 100%;
    -ms-text-size-adjust: 100%;
@@ -241,7 +242,8 @@
    font-style: 400;
    color: #333;
    font-size: 16px;
-   background-color: #26c6da;
+   background-color: #ffffff;
+   margin: 10px;
  }
  h1,
  h2,
