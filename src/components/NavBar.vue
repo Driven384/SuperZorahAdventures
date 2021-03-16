@@ -1,20 +1,12 @@
-<!--This is the Navigation component
-  - Read adventures
-  - The Why
-  - Albums
--->
-
 <template>
   <div id="nav-bar">
-
     <footer class="card-footer">
       <b-tabs expanded>
-        <b-tab-item icon="home"><router-link to="/"></router-link></b-tab-item>
-        <b-tab-item icon="image-multiple"><router-link to="albums"></router-link></b-tab-item>
-        <b-tab-item icon="bookshelf"><router-link to="adventures"></router-link></b-tab-item>
-        <b-tab-item icon="information"><router-link to="thewhy"></router-link></b-tab-item>
-    </b-tabs>
-
+        <b-tab-item icon="home" tag="router-link" :to="{ path: '/' }" ></b-tab-item>
+        <b-tab-item icon="image-multiple" tag="router-link" to="/albums"></b-tab-item>
+        <b-tab-item icon="bookshelf" type="router-link" to="adventures"></b-tab-item>
+        <b-tab-item icon="information" type="router-link" to="thewhy"></b-tab-item>
+      </b-tabs>
     </footer>
   </div>
 </template>

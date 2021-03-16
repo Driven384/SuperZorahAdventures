@@ -3,34 +3,71 @@
     <div class="card">
       <div class="content">
         <h3 class="title is-3">The latest adventure</h3>
-        <h6 class="subtitle is-6">13-3-2020 - By Manon</h6>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean auctor ullamcorper ultrices. Donec sagittis velit id ex vulputate,
-          vitae bibendum neque scelerisque. Sed a quam sit amet mi sodales vehicula.
-          Vestibulum leo tellus, sodales id blandit quis ...
-        </p>
-        <b-button type="is-link"><router-link to="/adventure/1"></router-link>Read more</b-button>
+        <h6 class="subtitle is-6">13-3-2020 - By {{adventureProps.author}}</h6>
+        <p>{{adventureProps.intro}}...</p>
+
+        <b-button
+            label="Read more"
+            type="is-primary"
+            @click="isComponentModalActive = true" />
+
+        <b-modal
+            v-model="isComponentModalActive"
+            has-modal-card
+            full-screen
+            :can-cancel="true">
+            <adventure :id="id"></adventure>
+        </b-modal>
       </div>
     </div>
+
   </div>
+
 </template>
 
 <script>
+import Firebase from "firebase/app";
+import "firebase/firestore";
+import Adventure from "./Adventure.vue";
+
 export default {
   name: 'TheLatestAdventure',
-  data() {
-    return {
-      title: '',
-      date: '',
-      author: '',
-      intro: '',
-      id: null
-    }
+
+  components: {
+      'adventure': Adventure
   },
 
-  created: function() {
-    console.log("heey")
+  data() {
+    return {
+      adventureProps: [],
+      isComponentModalActive: false,
+      id: null,
+    };
+  },
+
+  methods: {
+    getTheLatestAdventure() {
+      var db = Firebase.firestore();
+      var adventures = db.collection("adventures");
+      var query = adventures.orderBy("date").limit(1);
+
+      query.get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            this.adventureProps = doc.data();
+            this.id = doc.id;
+          });
+      });
+    },
+  },
+
+  created() {
+    this.getTheLatestAdventure();
   }
 };
 </script>
+
+<style scoped>
+  button {
+    float: right;
+  }
+</style>
