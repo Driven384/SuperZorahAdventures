@@ -1,4 +1,5 @@
 import Vue from "vue";
+import VueFab from "vue-float-action-button";
 
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
@@ -14,6 +15,11 @@ firebase.initializeApp({
 });
 
 import "@mdi/font/css/materialdesignicons.css";
+
+Vue.use(VueFab,  {
+  // opitons 可选iconfont图标或MaterialIcons
+  iconType: 'MaterialDesign',
+});
 
 import App from "./App.vue";
 
