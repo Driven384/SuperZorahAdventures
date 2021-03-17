@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <home />
-    <navbar />
+    <navbar currentRoute="currentRoute" />
   </div>
 </template>
 

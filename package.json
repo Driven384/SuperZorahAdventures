@@ -53,5 +53,8 @@
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "vue-template-compiler": "^2.6.11"
+  },
+  "alias": {
+    "vue" : "./node_modules/vue/dist/vue.common.js"
   }
 }
