@@ -56,6 +56,8 @@ export default {
             this.adventureProps = doc.data();
             this.id = doc.id;
           });
+      }).catch((error) => {
+        console.log("Error getting documents: ", error);
       });
     },
   },
