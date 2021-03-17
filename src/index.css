@@ -309,10 +309,8 @@
    line-height: 20px;
    font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
    font-style: 400;
-   padding: 0.75rem 0;
+   padding: 0.75rem;
    line-height: 1.5rem !important;
-   border: none;
-   border-radius: 0;
    box-sizing: border-box;
    color: #333;
    outline: none;
@@ -1017,4 +1015,7 @@
  .fab-main-container {
    right: 15%!important;
   bottom: 15%!important;
+ }
+ .modal-card-title {
+   margin-bottom: 0px!important;
  }

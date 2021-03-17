@@ -22,9 +22,23 @@
           <adventureupload></adventureupload>
       </b-modal>
 
-      <div class="card" v-for="adventure in adventureProps" :key="adventure.id">
-        <p>{{adventure.title}}</p>
-        <h6 class="subtitle is-6">13-3-2020 - By {{adventure.author}}</h6>
+      <div class="card" v-for="adventure in adventureProps" :key="adventure.title">
+        <p class="title is-5">{{adventure.title}}</p>
+        <p class="subtitle is-6">13-3-2020 - By {{adventure.author}}</p>
+        <p>{{adventure.intro}}...</p>
+
+        <b-button
+            label="Read more"
+            type="is-primary"
+            @click="isAdventureModalActive = true" />
+
+        <b-modal
+            v-model="isAdventureModalActive"
+            has-modal-card
+            full-screen
+            :can-cancel="true">
+            <adventure :id="id"></adventure>
+        </b-modal>
       </div>
     </div>
   </div>
@@ -34,16 +48,20 @@
 import Firebase from "firebase/app";
 import "firebase/firestore";
 import AdventureUpload from "./AdventureUpload.vue";
+import Adventure from "./Adventure.vue";
 
 export default {
   components: {
     'adventureupload': AdventureUpload,
+    'adventure': Adventure
   },
 
   data() {
     return {
       adventureProps: [],
-      isComponentModalActive: false
+      isComponentModalActive: false,
+      isAdventureModalActive: false,
+      id: null,
     };
   },
 
@@ -55,6 +73,7 @@ export default {
 
       query.get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
+            this.id = doc.id;
             this.adventureProps.push(doc.data());
           });
       }).catch((error) => {

@@ -47,9 +47,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.content p:not(:last-child) {
-  margin-bottom: 0px;
-}
-</style>

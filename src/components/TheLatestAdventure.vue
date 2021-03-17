@@ -3,7 +3,8 @@
     <div class="card">
       <div class="content">
         <h3 class="title is-3">The latest adventure</h3>
-        <h6 class="subtitle is-6">13-3-2020 - By {{adventureProps.author}}</h6>
+        <p class="title is-5">{{adventureProps.title}}</p>
+        <p class="subtitle is-6">13-3-2020 - By {{adventureProps.author}}</p>
         <p>{{adventureProps.intro}}...</p>
 
         <b-button
