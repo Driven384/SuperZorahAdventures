@@ -2,10 +2,10 @@
   <div id="nav-bar">
     <footer class="card-footer">
       <b-tabs expanded>
-        <b-tab-item icon="home" tag="router-link" :to="route" ></b-tab-item>
-        <b-tab-item icon="image-multiple" tag="router-link" :to="`${route}albums`"></b-tab-item>
-        <b-tab-item icon="bookshelf" type="router-link" :to="`${route}albums`"></b-tab-item>
-        <b-tab-item icon="information" type="router-link" :to="`${route}albums`"></b-tab-item>
+        <b-tab-item icon="home"><router-link to="/"></router-link></b-tab-item>
+        <b-tab-item icon="image-multiple"><router-link to="/albums"></router-link></b-tab-item>
+        <b-tab-item icon="bookshelf"><router-link to="/adventures"></router-link></b-tab-item>
+        <b-tab-item icon="information"><router-link to="/thewhy"></router-link></b-tab-item>
       </b-tabs>
     </footer>
   </div>
@@ -35,15 +35,5 @@ export default {
     bottom: 0;
     width: 100%;
     background-color: #ffffff;
-  }
-
-  .b-tabs .tab-content {
-    padding: 0px;
-  }
-</style>
-
-<style>
-  .b-tabs .tab-content {
-    padding: 0px;
   }
 </style>

@@ -26,6 +26,7 @@
     "core-js": "^3.6.5",
     "firebase": "^8.3.0",
     "vue": "^2.6.11",
+    "vue-float-action-button": "^0.7.8",
     "vue-material-design-icons": "^4.11.0",
     "vue-router": "^3.5.1"
   },
@@ -52,9 +53,13 @@
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "browser": {
+    "vue": "vue/dist/vue.common.js"
   },
   "alias": {
-    "vue" : "./node_modules/vue/dist/vue.common.js"
+    "vue": "./node_modules/vue/dist/vue.common.js"
   }
 }

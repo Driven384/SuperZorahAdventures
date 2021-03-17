@@ -1,5 +1,9 @@
 import Vue from "vue";
+
+import VueRouter from "vue-router";
+Vue.use(VueRouter);
 import routes from "./routes";
+
 import firebase from "firebase/app";
 import "firebase/firestore";
 
@@ -11,16 +15,21 @@ firebase.initializeApp({
 
 import "@mdi/font/css/materialdesignicons.css";
 
-//import App from "./App.vue";
+import App from "./App.vue";
 
-/*const router = new VueRouter({
-  routes // short for `routes: routes`
-});*/
+Vue.config.productionTip = false;
+//const NotFound = { template: '<p>Page not found</p>' };
 
-const NotFound = { template: `<p>Page not found</p>` };
+const router = new VueRouter({
+  routes
+});
 
-const app = new Vue({
+new Vue({
   el: '#app',
+  data: {
+    currentRoute: window.location.pathname
+  },
+  /*el: '#app',
   data: {
     currentRoute: window.location.pathname
   },
@@ -40,13 +49,10 @@ const app = new Vue({
         ? require('./components/' + matchingView + '.vue')
         : NotFound
     }
-  },
+  },*/
+  router,
 
   render (h) {
-    return h(this.ViewComponent)
+    return h(App)
   }
 });
-
-window.addEventListener('popstate', () => {
-  app.currentRoute = window.location.pathname
-})
