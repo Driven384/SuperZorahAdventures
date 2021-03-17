@@ -9,7 +9,26 @@
   SuperZorah
 </h1>
 
-This project runs on Vue, Storybook and uses the Buefy CSS library.
+This project runs on Vue, Storybook and uses the Buefy CSS library. Firebase(Firestore) is used as database.
+
+## About
+
+SuperZorah is the working title of this project. It's named after my daughter Zorah and the fact she is a super girl.
+The project is inspired by her and all the things she experiences together with the people close to her.
+There are so many pictures and videos, that I wanted to collect them in one place, where eventually more people with access can upload stories, images and videos. It would be nice to be able to customize so other users can make it there own and even control multiple instances for more kids.
+
+## Current coverage
+
+- Home page
+- Home page: The latest adventure, Read more button leads to modal with the entire story
+- Bottom NavBar
+- Adventures page: list of all adventures
+- Adventures page: Read more buttons lead to modal with the entire story
+- Adventures page: button to modal to add new adventure
+- New adventure modal: author, date and text can be entered and saved
+
+The routing (VueRouter) is not working yet.
+Storybook runs but The current files are only examples at the moment.
 
 ## 🔎 What's inside?
 

@@ -64,7 +64,7 @@ export default {
       })
       .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);
-          this.$buefy.modal.close()
+          this.$emit('close')
       })
       .catch((error) => {
           console.error("Error adding document: ", error);
