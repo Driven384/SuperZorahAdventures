@@ -10,6 +10,7 @@
         <b-button
             label="Read more"
             type="is-primary"
+            outlined
             @click="isComponentModalActive = true" />
 
         <b-modal
@@ -55,6 +56,7 @@ export default {
       query.get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             this.adventureProps = doc.data();
+            this.adventureProps.intro = this.adventureProps.text.substring(0,140);
             this.id = doc.id;
           });
       }).catch((error) => {

@@ -30,6 +30,10 @@ export default {
 </script>
 
 <style scoped>
+  #nav-bar {
+    margin-left: -10px;
+  }
+
   footer {
     position: fixed;
     bottom: 0;

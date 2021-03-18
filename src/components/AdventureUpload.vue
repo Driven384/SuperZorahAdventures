@@ -17,7 +17,7 @@
         <b-field>
             <b-input placeholder="Author" v-model="author" required></b-input>
         </b-field>
-        <b-field label="Select a date">
+        <b-field>
             <b-datepicker
                 placeholder="Type or select a date..."
                 icon="calendar-today"
@@ -25,6 +25,9 @@
                 required
                 >
             </b-datepicker>
+        </b-field>
+        <b-field>
+            <b-input placeholder="Title" v-model="title" required></b-input>
         </b-field>
         <b-field>
             <b-input maxlength="500" type="textarea" placeholder="Text" v-model="text" required></b-input>
@@ -49,6 +52,7 @@ export default {
   data() {
     return {
       author: '',
+      title: '',
       text: '',
       locale: undefined // Browser locale
     };
@@ -60,11 +64,12 @@ export default {
       db.collection("adventures").add({
         author: this.author,
         text: this.text,
+        title: this.title,
         date: this.locale
       })
-      .then((docRef) => {
-          console.log("Document written with ID: ", docRef.id);
-          this.$emit('close')
+      .then(() => {
+          //close modal
+          this.$parent.close();
       })
       .catch((error) => {
           console.error("Error adding document: ", error);
@@ -73,3 +78,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  button {
+    float: right;
+  }
+</style>

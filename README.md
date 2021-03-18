@@ -27,6 +27,7 @@ There are so many pictures and videos, that I wanted to collect them in one plac
 - Adventures page: button to modal to add new adventure
 - New adventure modal: author, date and text can be entered and saved
 
+Styling is based on Buefy components.
 The routing (VueRouter) is not working yet.
 Storybook runs but The current files are only examples at the moment.
 

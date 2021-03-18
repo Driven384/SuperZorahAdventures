@@ -32,7 +32,7 @@ export default {
 
 #app {
   padding-bottom: 60px;
-  background-color: aliceblue;
+  background-color: #f2f2f2;
 }
 
 .b-tabs .tab-content {

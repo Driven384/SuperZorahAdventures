@@ -1,7 +1,7 @@
 <!--This is the Adventures component
   - List adventures
   - Click adventure, to read more
-  - Browse adventure on date
+  - Browse adventure on date in the future
 -->
 
 <template>
@@ -24,12 +24,13 @@
 
       <div class="card" v-for="adventure in adventureProps" :key="adventure.title">
         <p class="title is-5">{{adventure.title}}</p>
-        <p class="subtitle is-6">13-3-2020 - By {{adventure.author}}</p>
+        <p class="subtitle is-6">{{adventure.date}} - By {{adventure.author}}</p>
         <p>{{adventure.intro}}...</p>
 
         <b-button
             label="Read more"
             type="is-primary"
+            outlined
             @click="isAdventureModalActive = true" />
 
         <b-modal
@@ -67,26 +68,43 @@ export default {
 
   methods: {
     getTheLatestAdventure() {
+      //init db
       var db = Firebase.firestore();
       var adventures = db.collection("adventures");
-      var query = adventures.orderBy("date").limit(1);
+      var query = adventures.orderBy("date");
 
+      //start
       query.get().then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            this.id = doc.id;
-            this.adventureProps.push(doc.data());
-          });
+
+        querySnapshot.forEach((doc) => {
+          this.id = doc.id;
+          var data = doc.data();
+
+          //get intro text
+          data.intro = data.text.substring(0,140);
+
+          //from timestamp to readable date
+          data.date.toDate();
+          data.date = new Date(data.date.seconds*1000).toDateString();
+
+          //push items
+          this.adventureProps.push(data);
+        });
+
       }).catch((error) => {
         console.log("Error getting documents: ", error);
       });
-
-      console.log(this.adventureProps)
     },
   },
 
   created() {
-    console.log('adventures')
     this.getTheLatestAdventure();
   }
 }
 </script>
+
+<style scoped>
+  .card button {
+    float: right;
+  }
+</style>
