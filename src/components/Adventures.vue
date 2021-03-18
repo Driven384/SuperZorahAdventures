@@ -22,7 +22,7 @@
           <adventureupload></adventureupload>
       </b-modal>
 
-      <div class="card" v-for="adventure in adventureProps" :key="adventure.title">
+      <div class="card" v-for="adventure in adventureProps" :key="adventure.id">
         <p class="title is-5">{{adventure.title}}</p>
         <p class="subtitle is-6">{{adventure.date}} - By {{adventure.author}}</p>
         <p>{{adventure.intro}}...</p>
@@ -31,18 +31,18 @@
             label="Read more"
             type="is-primary"
             outlined
-            @click="isAdventureModalActive = true" />
-
-        <b-modal
-            v-model="isAdventureModalActive"
-            has-modal-card
-            full-screen
-            :can-cancel="true">
-            <adventure :id="id"></adventure>
-        </b-modal>
+            @click="openModal(adventure.id)" />
       </div>
     </div>
+    <b-modal
+        v-model="isAdventureModalActive"
+        has-modal-card
+        full-screen
+        :can-cancel="true">
+        <adventure :id="adventureID"></adventure>
+    </b-modal>
   </div>
+
 </template>
 
 <script>
@@ -60,13 +60,17 @@ export default {
   data() {
     return {
       adventureProps: [],
+      adventureID: null,
       isComponentModalActive: false,
       isAdventureModalActive: false,
-      id: null,
     };
   },
 
   methods: {
+    openModal(id) {
+      this.adventureID = id;
+      this.isAdventureModalActive = true;
+    },
     getTheLatestAdventure() {
       //init db
       var db = Firebase.firestore();
@@ -77,8 +81,9 @@ export default {
       query.get().then((querySnapshot) => {
 
         querySnapshot.forEach((doc) => {
-          this.id = doc.id;
           var data = doc.data();
+
+          data.id = doc.id;
 
           //get intro text
           data.intro = data.text.substring(0,140);

@@ -1,12 +1,15 @@
 import Vue from "vue";
-import VueFab from "vue-float-action-button";
 
 import VueRouter from "vue-router";
-Vue.use(VueRouter);
+
 import routes from "./routes";
 
 import firebase from "firebase/app";
 import "firebase/firestore";
+
+import "@mdi/font/css/materialdesignicons.css";
+
+import App from "./App.vue";
 
 firebase.initializeApp({
   apiKey: "AIzaSyDQsKp-yHVygrFvMhzt1VSBc_Y1FZPmtPo",
@@ -15,21 +18,15 @@ firebase.initializeApp({
   storageBucket: 'gs://superzorah.appspot.com'
 });
 
-import "@mdi/font/css/materialdesignicons.css";
 
-Vue.use(VueFab,  {
-  // opitons 可选iconfont图标或MaterialIcons
-  iconType: 'MaterialDesign',
-});
 
-import App from "./App.vue";
-
-Vue.config.productionTip = false;
-//const NotFound = { template: '<p>Page not found</p>' };
+Vue.use(VueRouter);
 
 const router = new VueRouter({
   routes
 });
+
+Vue.config.productionTip = false;
 
 new Vue({
   el: '#app',

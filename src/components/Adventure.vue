@@ -10,7 +10,7 @@
 
     <section class="modal-card-body">
       <div class="content">
-        <h6 class="subtitle is-6">13-3-2020 - By {{adventureProps.author}}</h6>
+        <h6 class="subtitle is-6">{{adventureProps.date}} - By {{adventureProps.author}}</h6>
         <p>{{adventureProps.text}}</p>
       </div>
     </section>
@@ -26,7 +26,7 @@ export default {
 
   data() {
     return {
-      adventureProps: {}
+      adventureProps: []
     };
   },
 
@@ -37,7 +37,16 @@ export default {
       var query = adventures.doc(this.id);
 
       query.get().then((querySnapshot) => {
-        this.adventureProps = querySnapshot.data();
+        var data = querySnapshot.data();
+
+        //from timestamp to readable date
+        data.date.toDate();
+        data.date = new Date(data.date.seconds*1000).toDateString();
+
+        this.adventureProps = data;
+
+      }).catch((error) => {
+        console.log("Error getting document: ", error);
       });
     },
   },
