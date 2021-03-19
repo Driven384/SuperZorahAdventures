@@ -10,21 +10,18 @@
     <the-latest-adventure />
     <the-latest />
     
-    <navbar />
   </div>
 </template>
 
 <script>
-import TheBest from "./TheBest.vue";
-import TheLatest from "./TheLatest.vue";
-import TheLatestAdventure from "./TheLatestAdventure.vue";
-import NavBar from "./NavBar.vue";
+import TheBest from "../components/TheBest.vue";
+import TheLatest from "../components/TheLatest.vue";
+import TheLatestAdventure from "../components/TheLatestAdventure.vue";
 
 export default {
   name: 'Home',
 
   components: {
-    'navbar': NavBar,
     'the-best': TheBest,
     'the-latest': TheLatest,
     'the-latest-adventure': TheLatestAdventure

@@ -48,8 +48,8 @@
 <script>
 import Firebase from "firebase/app";
 import "firebase/firestore";
-import AdventureUpload from "./AdventureUpload.vue";
-import Adventure from "./Adventure.vue";
+import AdventureUpload from "../components/AdventureUpload.vue";
+import Adventure from "../components/Adventure.vue";
 
 export default {
   components: {
