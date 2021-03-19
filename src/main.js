@@ -6,6 +6,7 @@ import routes from "./routes";
 
 import firebase from "firebase/app";
 import "firebase/firestore";
+import "firebase/storage";
 
 import "@mdi/font/css/materialdesignicons.css";
 

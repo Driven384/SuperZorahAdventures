@@ -25,6 +25,7 @@
     "buefy": "^0.9.4",
     "core-js": "^3.6.5",
     "firebase": "^8.3.0",
+    "moment": "^2.29.1",
     "vue": "^2.6.11",
     "vue-float-action-button": "^0.7.8",
     "vue-material-design-icons": "^4.11.0",

@@ -4,7 +4,7 @@
       <div class="content">
         <h3 class="title is-3">The latest adventure</h3>
         <p class="title is-5">{{adventureProps.title}}</p>
-        <p class="subtitle is-6">13-3-2020 - By {{adventureProps.author}}</p>
+        <p class="subtitle is-6">{{adventureProps.date}} - By {{adventureProps.author}}</p>
         <p>{{adventureProps.intro}}...</p>
 
         <b-button
@@ -30,7 +30,7 @@
 <script>
 import Firebase from "firebase/app";
 import "firebase/firestore";
-import Adventure from "./Adventure.vue";
+import Adventure from "../modals/Adventure.vue";
 
 export default {
   name: 'TheLatestAdventure',
@@ -55,7 +55,14 @@ export default {
 
       query.get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            this.adventureProps = doc.data();
+            var data = doc.data();
+
+            //from timestamp to readable date
+            data.date.toDate();
+            data.date = new Date(data.date.seconds*1000).toDateString();
+
+            this.adventureProps = data;
+
             this.adventureProps.intro = this.adventureProps.text.substring(0,140);
             this.id = doc.id;
           });

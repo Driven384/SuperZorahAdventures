@@ -10,7 +10,7 @@
       <h3 class="title is-3">Albums</h3>
 
       <b-button
-          label="Add new images"
+          label="Add new album"
           type="is-primary"
           @click="isComponentModalActive = true" />
 
@@ -21,24 +21,76 @@
           :can-cancel="true">
           <imageupload></imageupload>
       </b-modal>
+
+      <div v-for="album in albums" :key="album.fullpath" class="card">
+        <p class="title is-5">{{album.name}}</p>
+
+        <b-button
+            label="View album"
+            type="is-primary"
+            outlined
+            @click="openModal(album.name)" />
+      </div>
     </div>
+
+    <b-modal
+        v-model="isAlbumModalActive"
+        has-modal-card
+        full-screen
+        :can-cancel="true">
+        <album :name="albumName"></album>
+    </b-modal>
   </div>
 </template>
 
 <script>
-import ImageUpload from '../components/ImageUpload.vue';
+import Firebase from "firebase/app";
+import ImageUpload from '../modals/ImageUpload.vue';
+import Album from '../modals/Album.vue';
 
 export default {
   name: 'Albums',
 
   components: {
-    'imageupload': ImageUpload
+    'imageupload': ImageUpload,
+    'album': Album
   },
 
   data() {
     return {
-      isComponentModalActive: false
+      isComponentModalActive: false,
+      isAlbumModalActive: false,
+      albumName: '',
+      albums: []
     };
+  },
+
+  methods: {
+    openModal(name) {
+      this.albumName = name;
+      this.isAlbumModalActive = true;
+    },
+
+    getAlbums() {
+      // init storage
+      var storage = Firebase.storage();
+      var storageRef = storage.ref();
+
+      //get results
+      storageRef.listAll().then((res) => {
+        res.prefixes.forEach((folderRef) => {
+
+          //push albums
+          this.albums.push(folderRef)
+        });
+      }).catch((error) => {
+          console.error("Error downloading albums: ", error);
+      });
+    }
+  },
+
+  created() {
+    this.getAlbums();
   }
 }
 </script>

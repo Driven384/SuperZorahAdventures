@@ -9,7 +9,7 @@
     <the-best />
     <the-latest-adventure />
     <the-latest />
-    
+
   </div>
 </template>
 

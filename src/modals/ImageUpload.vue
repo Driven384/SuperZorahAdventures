@@ -13,14 +13,8 @@
 
     <section class="modal-card-body">
       <div class="content">
-
-        <b-field class="file">
-          <b-upload v-model="file" multiple expanded>
-            <a class="button is-primary is-fullwidth">
-              <b-icon icon="upload"></b-icon>
-              <span>{{ file.name || "Click to upload"}}</span>
-            </a>
-          </b-upload>
+        <b-field>
+          <b-input placeholder="Name album" v-model="name" required></b-input>
         </b-field>
         <b-field>
           <b-upload v-model="dropFiles" multiple drag-drop expanded>
@@ -47,20 +41,24 @@
           label="Save"
           type="is-primary"
           @click="saveImages()" />
+
+      <b-progress :value="progression" show-value format="percent"></b-progress>
     </section>
   </div>
 </template>
 
 <script>
-//import Firebase from "firebase/app";
+import Firebase from "firebase/app";
+import moment from 'moment';
 
 export default {
   name: 'ImageUpload',
 
   data() {
     return {
-      file: {},
-      dropFiles: []
+      dropFiles: [],
+      name: '',
+      progression: 0
     };
   },
 
@@ -70,15 +68,41 @@ export default {
    },
 
     saveImages() {
-      console.log(this.files)
-      console.log(this.dropfiles)
+      console.log(this.dropFiles)
       // Get a reference to the storage service, which is used to create references in your storage bucket
-      //var storage = Firebase.storage();
+      var storage = Firebase.storage();
 
       // Create a storage reference from our storage service
-      //var storageRef = storage.ref();
+      var storageRef = storage.ref();
 
-      //console.log(storageRef)
+      var date = moment().format('DD-MM-YYYY');
+
+      console.log(this.name)
+      if(!this.name) this.name = date;
+
+      Object.keys(this.dropFiles).forEach(key => {
+        var uploadTask = storageRef.child(this.name +'/' + this.dropFiles[key].name)
+
+        uploadTask.put(this.dropFiles[key]).then((snapshot) => {
+          var progression = 0,
+           progress = setInterval(function()
+           {
+             this.progression = progression;
+               if(snapshot.state == 'success') {
+                   clearInterval(progress);
+                   alert('done');
+                 }
+
+           }, 1000);
+
+          //if(snapshot.state == 'success') {
+            //close modal
+            //this.$parent.close();
+        //  }
+        }).catch((error) => {
+            console.error("Error adding image: ", error);
+        });
+      });
     }
   }
 }
