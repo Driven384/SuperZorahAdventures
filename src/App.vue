@@ -1,6 +1,18 @@
 <template>
   <div id="app">
     <navbar />
+    <div class="columns is-mobile">
+      <div class="column" style="background-color:#77E09E;">
+      </div>
+      <div class="column" style="background-color:#08b7c4;">
+      </div>
+      <div class="column" style="background-color:#fbc941;">
+      </div>
+      <div class="column" style="background-color:#ff73a1;">
+      </div>
+      <div class="column" style="background-color:#935fc7;">
+      </div>
+    </div>
     <router-view></router-view>
   </div>
 </template>

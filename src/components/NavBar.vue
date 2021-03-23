@@ -18,6 +18,7 @@
           </b-navbar-item>
         </template>
     </b-navbar>
+
 </template>
 
 <script>
