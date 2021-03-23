@@ -28,24 +28,6 @@ export default {
 </script>
 
 <style>
-@import "./index.css";
-
-#app {
-  padding-bottom: 60px;
-  background-color: #f2f2f2;
-}
-
-.b-tabs .tab-content {
-  padding: 0px;
-}
-
-.card {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 15px;
-}
-
-.tabs .icon:first-child {
-  margin-right: 0px;
-}
+@import "./css/index.css";
+@import "./css/navbar.css";
 </style>

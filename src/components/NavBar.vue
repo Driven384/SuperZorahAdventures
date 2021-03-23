@@ -1,30 +1,31 @@
 <template>
-  <div id="nav-bar">
-    <footer class="card-footer">
-      <b-tabs expanded>
-        <b-tab-item icon="home"><router-link to="/"></router-link></b-tab-item>
-        <b-tab-item icon="image-multiple"><router-link to="/albums"></router-link></b-tab-item>
-        <b-tab-item icon="bookshelf"><router-link to="/adventures"></router-link></b-tab-item>
-        <b-tab-item icon="information"><router-link to="/thewhy"></router-link></b-tab-item>
-      </b-tabs>
-    </footer>
-  </div>
+    <b-navbar id="navbar">
+        <template #brand>
+            <b-navbar-item tag="router-link" :to="{ path: '/' }">
+              <h2 class="title is-2">SuperZorah</h2>
+            </b-navbar-item>
+        </template>
+
+        <template #end>
+          <b-navbar-item tag="router-link" :to="{ path: '/albums' }">
+              Albums
+          </b-navbar-item>
+          <b-navbar-item tag="router-link" :to="{ path: '/adventures' }">
+              Adventures
+          </b-navbar-item>
+          <b-navbar-item tag="router-link" :to="{ path: '/thewhy' }">
+              The why
+          </b-navbar-item>
+        </template>
+    </b-navbar>
 </template>
 
 <script>
 export default {
   name: "NavBar",
 
-  props: ['currentRoute'],
-
-  data() {
-    return {
-      route: ''
-    };
-  },
-
   created: function() {
-    this.route = this.currentRoute;
+    console.log('yo')
   }
 };
 </script>

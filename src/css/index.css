@@ -1,10 +1,14 @@
  /* Reset.less
  * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
  * ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
  html,
  body {
    margin: 0;
    padding: 0;
+   background-color: #ff73a1!important;
  }
  h1,
  h2,
@@ -185,24 +189,6 @@
      opacity: 0.5;
    }
  }
- @font-face {
-   font-family: 'Nunito Sans';
-   font-style: italic;
-   font-weight: 400;
-   src: url(https://fonts.gstatic.com/s/nunitosans/v6/pe0oMImSLYBIv1o4X1M8cce4E9lKcw.ttf) format('truetype');
- }
- @font-face {
-   font-family: 'Nunito Sans';
-   font-style: normal;
-   font-weight: 400;
-   src: url(https://fonts.gstatic.com/s/nunitosans/v6/pe0qMImSLYBIv1o4X1M8cce9I94.ttf) format('truetype');
- }
- @font-face {
-   font-family: 'Nunito Sans';
-   font-style: normal;
-   font-weight: 800;
-   src: url(https://fonts.gstatic.com/s/nunitosans/v6/pe03MImSLYBIv1o4X1M8cc8aBc5tU1Q.ttf) format('truetype');
- }
  .force-wrap {
    word-wrap: break-word;
    word-break: break-all;
@@ -211,15 +197,15 @@
    hyphens: auto;
  }
  .type-light {
-   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-family: 'Lato', sans-serif;
    font-weight: 300;
  }
  .type-bold {
-   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-family: 'Lato', sans-serif;
    font-weight: 800;
  }
  .type-italic {
-   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-family: 'Lato', sans-serif;
    font-weight: 400;
    font-style: italic;
  }
@@ -238,12 +224,11 @@
    -moz-osx-font-smoothing: grayscale;
  }
  body {
-   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-family: 'Lato', sans-serif;
    font-style: 400;
    color: #333;
    font-size: 16px;
    background-color: #ffffff;
-   margin: 10px;
  }
  h1,
  h2,
@@ -251,7 +236,7 @@
  h4,
  h5,
  h6 {
-   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-family: 'Oswald', sans-serif;
    font-style: 400;
    margin: 0;
    padding: 0;
@@ -259,27 +244,31 @@
  h1 {
    font-size: 40px;
    line-height: 48px;
+   color: #ff73a1!important;
  }
  h2 {
    font-size: 28px;
    line-height: 32px;
+   color: #ff73a1!important;
  }
  h3 {
    font-size: 24px;
    line-height: 28px;
+   color: #08B7C4!important;
  }
  h4 {
    font-size: 20px;
    line-height: 24px;
+   color: #08B7C4!important;
  }
  h5 {
    font-size: 14px;
    line-height: 20px;
-   color: #ccc;
+   color: #935fc7!important;
    text-transform: uppercase;
  }
  h6 {
-   color: #aaa;
+   color: #935fc7!important;
  }
  p {
    font-size: 16px;
@@ -307,7 +296,7 @@
  textarea {
    font-size: 14px;
    line-height: 20px;
-   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-family: 'Lato', sans-serif;
    font-style: 400;
    padding: 0.75rem;
    line-height: 1.5rem !important;
@@ -408,11 +397,11 @@
  }
  @font-face {
    font-family: "percolate";
-   src: url("./assets/icon/percolate.eot?-5w3um4");
-   src: url("./assets/icon/percolate.eot?#iefix5w3um4") format("embedded-opentype"),
-     url("./assets/icon/percolate.woff?5w3um4") format("woff"),
-     url("./assets/icon/percolate.ttf?5w3um4") format("truetype"),
-     url("./assets/icon/percolate.svg?5w3um4") format("svg");
+   src: url("../assets/icon/percolate.eot?-5w3um4");
+   src: url("../assets/icon/percolate.eot?#iefix5w3um4") format("embedded-opentype"),
+     url("../assets/icon/percolate.woff?5w3um4") format("woff"),
+     url("../assets/icon/percolate.ttf?5w3um4") format("truetype"),
+     url("../assets/icon/percolate.svg?5w3um4") format("svg");
    font-weight: normal;
    font-style: normal;
  }
@@ -835,7 +824,7 @@
    letter-spacing: 0.3em;
    text-indent: 0.3em;
    text-transform: uppercase;
-   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-family: 'Lato', sans-serif;
    font-weight: 800;
    font-size: 11px;
    padding-left: 15px;
@@ -971,7 +960,7 @@
  .wrapper-message .title-message {
    font-size: 16px;
    line-height: 24px;
-   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-family: 'Lato', sans-serif;
    font-weight: 800;
    color: #555;
  }
@@ -1005,7 +994,7 @@
    overflow: hidden;
    text-overflow: ellipsis;
    white-space: nowrap;
-   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-family: 'Lato', sans-serif;
    font-weight: 800;
    color: #1c3f53;
    display: inline-block;
@@ -1018,4 +1007,9 @@
  }
  .modal-card-title {
    margin-bottom: 0px!important;
+ }
+ .card {
+   padding: 15px;
+   margin-bottom: 1px;
+   border-radius: initial;
  }

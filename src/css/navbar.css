@@ -1,0 +1,22 @@
+.navbar-burger {
+  color: #77e09e;
+}
+.navbar-burger span {
+  height: 3px;
+}
+.navbar-burger span:nth-child(1) {
+  top: calc(50% - 10px);
+}
+.navbar-burger span:nth-child(2) {
+  top: calc(50% - 1px);
+}
+.navbar-burger span:nth-child(3) {
+  top: calc(50% + 9px);
+}
+
+a.navbar-burger:hover{
+  color: #444444;
+}
+a.navbar-item {
+  font-size: 18px;
+}
