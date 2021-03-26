@@ -46,8 +46,7 @@
 </template>
 
 <script>
-import Firebase from "firebase/app";
-import "firebase/firestore";
+import {db} from "../firebase";
 import AdventureUpload from "../modals/AdventureUpload.vue";
 import Adventure from "../modals/Adventure.vue";
 
@@ -72,8 +71,6 @@ export default {
       this.isAdventureModalActive = true;
     },
     getTheLatestAdventure() {
-      //init db
-      var db = Firebase.firestore();
       var adventures = db.collection("adventures");
       var query = adventures.orderBy("date");
 

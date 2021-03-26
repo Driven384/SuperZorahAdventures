@@ -43,8 +43,7 @@
 </template>
 
 <script>
-import Firebase from "firebase/app";
-import "firebase/firestore";
+import {db} from "../firebase";
 
 export default {
   name: 'AdventureUpload',
@@ -60,7 +59,6 @@ export default {
 
   methods: {
     saveAdventure() {
-      var db = Firebase.firestore();
       db.collection("adventures").add({
         author: this.author,
         text: this.text,

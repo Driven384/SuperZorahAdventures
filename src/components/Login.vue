@@ -10,5 +10,7 @@
 
 <template>
   <div id="login">
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader"></div>
   </div>
 </template>

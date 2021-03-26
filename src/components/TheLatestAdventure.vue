@@ -28,8 +28,7 @@
 </template>
 
 <script>
-import Firebase from "firebase/app";
-import "firebase/firestore";
+import {db} from "../firebase";
 import Adventure from "../modals/Adventure.vue";
 
 export default {
@@ -49,7 +48,6 @@ export default {
 
   methods: {
     getTheLatestAdventure() {
-      var db = Firebase.firestore();
       var adventures = db.collection("adventures");
       var query = adventures.orderBy("date").limit(1);
 

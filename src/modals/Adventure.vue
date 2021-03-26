@@ -18,8 +18,7 @@
 </template>
 
 <script>
-import Firebase from "firebase/app";
-import "firebase/firestore";
+import {db} from "../firebase";
 
 export default {
   props: ['id'],
@@ -32,7 +31,6 @@ export default {
 
   methods: {
     getAdventureByID() {
-      var db = Firebase.firestore();
       var adventures = db.collection("adventures");
       var query = adventures.doc(this.id);
 

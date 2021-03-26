@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Firebase from "firebase/app";
+import {store} from "../firebase";
 
 export default {
   name: 'Album',
@@ -35,9 +35,7 @@ export default {
 
   methods: {
     getAlbumByName() {
-      //init storage
-      var storage = Firebase.storage();
-      var storageRef = storage.ref();
+      var storageRef = store.ref();
 
       //set name of album
       var listRef = storageRef.child(this.name);

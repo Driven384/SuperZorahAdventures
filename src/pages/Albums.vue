@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import Firebase from "firebase/app";
+import {store} from "../firebase";
 import ImageUpload from '../modals/ImageUpload.vue';
 import Album from '../modals/Album.vue';
 
@@ -72,9 +72,7 @@ export default {
     },
 
     getAlbums() {
-      // init storage
-      var storage = Firebase.storage();
-      var storageRef = storage.ref();
+      var storageRef = store.ref();
 
       //get results
       storageRef.listAll().then((res) => {

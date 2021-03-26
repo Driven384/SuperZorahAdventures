@@ -1,5 +1,6 @@
 .navbar-burger {
   color: #77e09e;
+  margin-top: 5px;
 }
 .navbar-burger span {
   height: 3px;
@@ -16,6 +17,7 @@
 
 a.navbar-burger:hover{
   color: #444444;
+  background-color: inherit;
 }
 a.navbar-item {
   font-size: 18px;
