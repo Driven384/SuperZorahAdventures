@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <navbar :login="login" />
+    <login />
 
-    <login v-if="isNotSignedIn" />
+    <navbar v-if="isSignedIn" />
 
-    <router-view></router-view>
+    <router-view v-if="isSignedIn"></router-view>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ import Buefy from "buefy";
 import "buefy/dist/buefy.css";
 Vue.use(Buefy);
 
-import {firebase} from "./firebase";
+import firebase from "firebase";
 
 import NavBar from "./components/NavBar.vue";
 import Login from "./components/Login.vue";
@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       login: false,
-      isNotSignedIn: false
+      isSignedIn: false
     }
   },
 
@@ -41,10 +41,10 @@ export default {
         if (user) {
           // User is signed in.
           console.log(user)
+          this.isSignedIn = true;
         } else {
           // No user is signed in.
           console.log('no')
-          this.isNotSignedIn = true;
         }
       });
     },

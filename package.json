@@ -30,7 +30,8 @@
     "vue": "^2.6.11",
     "vue-float-action-button": "^0.7.8",
     "vue-material-design-icons": "^4.11.0",
-    "vue-router": "^3.5.1"
+    "vue-router": "^3.5.1",
+    "vuelidate": "^0.7.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
