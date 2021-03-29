@@ -18,7 +18,6 @@ The project is inspired by her and all the things she experiences together with 
 There are so many pictures and videos, that I wanted to collect them in one place, where eventually more people with access can upload stories, images and videos. It would be nice to be able to customize so other users can make it there own and even control multiple instances for more kids.
 
 Styling is based on Buefy components for now, this is in progress to be changed to own css library with Storybook.
-The routing (VueRouter) is not working yet.
 Storybook runs but The current files are only examples at the moment.
 
 ## Current coverage
