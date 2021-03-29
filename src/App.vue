@@ -15,7 +15,7 @@ import Buefy from "buefy";
 import "buefy/dist/buefy.css";
 Vue.use(Buefy);
 
-import firebase from "firebase";
+//import firebase from "firebase";
 
 import NavBar from "./components/NavBar.vue";
 import Login from "./components/Login.vue";
@@ -37,16 +37,19 @@ export default {
 
   methods: {
     checkSignedIn() {
-      firebase.auth().onAuthStateChanged(function(user) {
+      /*firebase.auth().onAuthStateChanged(function() {
         if (user) {
           // User is signed in.
           console.log(user)
           this.isSignedIn = true;
         } else {
           // No user is signed in.
+          this.isSignedIn = true;
           console.log('no')
         }
-      });
+
+      });*/
+      this.isSignedIn = true;
     },
   },
 

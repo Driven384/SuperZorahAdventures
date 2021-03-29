@@ -9,7 +9,7 @@
 -->
 
 <template>
-  <div id="login">
+  <div id="login" v-if="isHide">
     <div id="Login-email"></div>
     <div id="Login-google"></div>
     <div id="Sign-up">
@@ -46,6 +46,7 @@ export default {
       name: "",
       email: "",
       password: "",
+      isHide: false
     }
   },
 
@@ -66,6 +67,9 @@ export default {
     signUp() {
       console.log('sign up')
     }
+  },
+
+  created() {
   }
 }
 </script>
