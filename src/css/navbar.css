@@ -22,3 +22,7 @@ a.navbar-burger:hover{
 a.navbar-item {
   font-size: 18px;
 }
+
+.navbar-menu.is-active {
+  margin-bottom: 5px;
+}

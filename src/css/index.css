@@ -9,6 +9,12 @@
    margin: 0;
    padding: 0;
    background-color: #ffffff!important;
+   height: 100%;
+   position: relative;
+ }
+ #app {
+   position: relative;
+height: 100%;
  }
  h1,
  h2,
@@ -1011,26 +1017,37 @@
  .card {
    padding: 15px;
    border-radius: initial;
+   margin-bottom: 5px;
  }
- .card:nth-child(1n) {
-   border-bottom: 1px solid #77e09e;
- }
- .card:nth-child(2n) {
-   border-bottom: 1px solid #08B7C4;
- }
- .card:nth-child(3n) {
-   border-bottom: 1px solid #fbc941;
- }
- .card:nth-child(4n) {
-   border-bottom: 1px solid #ff73a1;
- }
- .card:nth-child(5n) {
-   border-bottom: 1px solid #935fc7;
- }
- .columns:not(:last-child) {
-   margin-bottom: inherit;
- }
+
  .columns.is-mobile {
-   margin-left: inherit;
-   margin-right: inherit;
+   margin: 0px;
+   position: fixed;
+   width: 100%;
+   height: 100%;
+ }
+ .onTopOfColumns {
+   z-index: 1;
+   position: relative;
+ }
+ .button.is-primary {
+   background-color: #08b7c4;
+ }
+  .button.is-primary.is-outlined{
+   border-color: #08b7c4;
+   color: #08b7c4;
+  }
+
+ .topper .title {
+   color: #ffffff!important;
+   display: inline-block;
+   margin-top: 10px;
+   margin-left: 15px;
+ }
+
+ .topper .button {
+   float: right;
+   display: inline-block;
+   margin-top: 10px;
+   right: 15px;
  }

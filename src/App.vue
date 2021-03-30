@@ -2,8 +2,6 @@
   <div id="app">
     <login />
 
-    <navbar v-if="isSignedIn" />
-
     <div class="columns is-mobile">
       <div class="column" style="background-color:#77E09E;">
       </div>
@@ -17,7 +15,9 @@
       </div>
     </div>
 
-    <router-view v-if="isSignedIn"></router-view>
+    <navbar v-if="isSignedIn" class="onTopOfColumns" />
+
+    <router-view v-if="isSignedIn" class="onTopOfColumns"></router-view>
   </div>
 </template>
 

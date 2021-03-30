@@ -7,12 +7,14 @@
 <template>
   <div id="albums">
     <div class="content">
-      <h3 class="title is-3">Albums</h3>
+      <div class="topper">
+        <h3 class="title is-3">Albums</h3>
 
-      <b-button
-          label="Add new album"
-          type="is-primary"
-          @click="isComponentModalActive = true" />
+        <b-button
+            label="Add new album"
+            type="is-light is-outlined"
+            @click="isComponentModalActive = true" />
+      </div>
 
       <b-modal
           v-model="isComponentModalActive"
