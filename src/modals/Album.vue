@@ -10,9 +10,10 @@
 
     <section class="modal-card-body">
       <div class="content">
-        <img id="myimage" />
-        <div v-for="image in album" :key="image.fullpath" class="tile">
-          <img :src="image.url" />
+        <div class="columns is-mobile is-multiline">
+          <div class="column is-half-mobile" v-for="image in album" :key="image.fullpath">
+              <img :src="image.url" />
+          </div>
         </div>
       </div>
     </section>
